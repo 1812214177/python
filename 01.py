@@ -27,7 +27,8 @@ def parse_html(html):
         detail=movie_li.find('div',attrs={'class':'hd'})
         movie_name=movie_li.find('span',attrs={'class':'title'}).getText()
         #movie_url = movie_li.findall(r"(?<=href=\").+?(?=\")|(?<=href=\').+?(?=\')", html)
-        #movie_url=movie_li.find('a').getText()
+        for movie_ in movie_li.find_all('a'):
+                movie_url=movie_.get('href')
 
         #movie_name_list.append(movie_name)
 
@@ -35,7 +36,7 @@ def parse_html(html):
         movie_acter = movie_li.find('p', attrs={'class':''}).getText()
         #movie_acter_list.append(movie_acter)
 
-        movie_list.append(movie_name+movie_acter)
+        movie_list.append(movie_name+movie_acter+movie_url)
 
 
     next_page=soup.find('span',attrs={'class':'next'}).find('a')
