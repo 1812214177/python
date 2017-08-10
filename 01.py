@@ -1,6 +1,6 @@
 #!/usr/bin/ env python3
 # -*- coding: UTF-8 -*-
-#目前抓取Href还不会
+
 import requests
 from bs4 import BeautifulSoup
 import codecs
